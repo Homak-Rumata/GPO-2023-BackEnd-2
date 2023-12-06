@@ -7,6 +7,27 @@ let PersonInf;
 let LeaderInf;
 let FactoryInf;
 
+let Date = [
+    {
+        id: 0,
+        tyme: "2023-12-27",
+        status: 0,
+        type: 0,
+    },
+    {
+        id: 2,
+        tyme: "2023-11-27",
+        status: 1,
+        type: 1,
+    },
+    {
+        id: 0,
+        tyme: "2023-10-17",
+        status: 2,
+        type: 0,
+    }
+]
+
 //Имя на верху формы
 let StudentName = "Иванов Иван Иванович"
 app.set ('viem engine', 'ejs');
@@ -89,6 +110,23 @@ app.get ('/FactoryInfoForm', (req, res) => {
     res
     .status(200)
     .send(FactoryInfInf);
+})
+
+app.post ('/getstatmens', (req, res) => {
+    res
+    .status(200)
+    .send(Date)
+    .end;
+})
+
+app.post ('/getformDate', (req, res) => {
+    console.log(JSON.stringify(req.body))
+    res
+    .status(200)
+    .send(PersonInf+LeaderInf+FactoryInf)
+
+    .end;
+    
 })
 
 //Легаси, действие кнопки
